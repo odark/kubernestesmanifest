@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nodedemo
+  name: nodedemo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodedemo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nodedemo
+      containers:
+      - image: odark/test:latest
+        name: nodedemo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nodedemo
+  name: nodedemo
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8000
+    nodePort: 30007
+  selector:
+    app: nodedemo
+status:
+  loadBalancer: {}
