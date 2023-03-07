@@ -15,6 +15,7 @@ spec:
       creationTimestamp: null
       labels:
         app: nodedemo
+    spec:
       containers:
       - image: odark/test:18
         name: nodedemo
