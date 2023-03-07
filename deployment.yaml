@@ -16,7 +16,7 @@ spec:
       labels:
         app: nodedemo
       containers:
-      - image: odark/test:latest
+      - image: odark/test:16
         name: nodedemo
 ---
 apiVersion: v1
