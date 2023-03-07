@@ -5,7 +5,7 @@ node {
         checkout scm
     }
 
-    stage('Update GIT') {
+    stage('Update Git') {
         script {
             catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                 withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
